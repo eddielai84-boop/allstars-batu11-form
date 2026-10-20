@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Allstars 群星老师 | 2026-2027 新学生报名表格</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans SC', sans-serif;
+      background: linear-gradient(180deg, #f0f7ff 0%, #fffbeb 40%, #f8fafc 100%);
+    }
+    .step-section { display: none; animation: fadeIn 0.25s ease-out; }
+    .step-section.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Allstars 立体字效果 */
+    .allstars-outline-white {
+      color: #ffffff;
+      -webkit-text-stroke: 2px #0f3578;
+      text-shadow: 0 3px 0 #0f3578;
+    }
+    .allstars-outline-yellow {
+      color: #fde047;
+      -webkit-text-stroke: 2px #0f3578;
+      text-shadow: 0 3px 0 #0f3578;
+    }
+    /* 普通选项卡片选中高亮（Allstars 蓝金主题） */
+    .option-card:has(input:checked) {
+      border-color: #0f3578;
+      background-color: #eff6ff;
+      box-shadow: 0 4px 14px -2px rgba(15, 53, 120, 0.16);
+    }
+    .option-card.disabled-card {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    /* 三栏价格表选中高亮 */
+    .price-row:has(input:checked) {
+      background-color: #eff6ff !important;
+      box-shadow: inset 5px 0 0 0 #0f3578;
+    }
+    .price-row:has(input:checked) .select-badge {
+      background-color: #0f3578;
+      color: #fde047;
+      border-color: #0f3578;
+    }
+    .sub-price-row:has(input:checked) {
+      background-color: #dbeafe !important;
+    }
+    .sub-price-row:has(input:checked) .select-badge {
+      background-color: #0f3578;
+      color: #fde047;
+      border-color: #0f3578;
+    }
+    .input-error {
+      border-color: #dc2626 !important;
+      background-color: #fef2f2 !important;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800">
+
+  <!-- ================= 顶部 Allstars 群星老师 海报风格品牌横幅 ================= -->
+  <header class="relative overflow-hidden bg-gradient-to-br from-[#e0f2fe] via-white to-[#fef3c7] border-b-4 border-[#0f3578] shadow-md">
+    <!-- 左上角与右下角蓝黄几何装饰 -->
+    <div class="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#0284c7] to-[#facc15] opacity-90 -translate-x-12 -translate-y-12 rotate-45 pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-36 h-36 bg-gradient-to-tl from-[#0f3578] to-[#facc15] opacity-80 translate-x-14 translate-y-14 rotate-45 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 pt-6 pb-8 sm:py-9 text-center relative z-10">
+      
+      <!-- Allstars Logo 与 群星老师主视觉 -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-7">
+        <!-- Allstars 标志复刻 -->
+        <div class="relative inline-flex flex-col items-center">
+          <!-- 顶部流星弧线与星星 SVG -->
+          <svg class="w-48 sm:w-56 h-10 -mb-3" viewBox="0 0 220 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M55 32 Q 115 8 168 18" stroke="#f59e0b" stroke-width="4" stroke-linecap="round"/>
+            <polygon points="175,6 179,15 189,16 181,22 184,32 175,26 166,32 169,22 161,16 171,15" fill="#0f3578" stroke="#facc15" stroke-width="2.5"/>
+          </svg>
+          <div class="text-4xl sm:text-6xl font-black italic tracking-tight leading-none select-none">
+            <span class="text-[#0f3578] drop-shadow-sm">All</span><span class="text-[#fbbf24] drop-shadow-[0_2px_2px_rgba(15,53,120,0.85)]">stars</span>
+          </div>
+          <!-- 底部深蓝弧线 -->
+          <svg class="w-44 sm:w-52 h-4 mt-0.5" viewBox="0 0 200 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 12 Q 105 2 190 7" stroke="#0f3578" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <!-- 群星老师 · 用心+专业 徽章 -->
+        <div class="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-300 px-5 py-2.5 rounded-2xl border-2 border-[#0f3578] shadow-md transform sm:-rotate-2">
+          <div class="text-2xl sm:text-3xl font-black tracking-wider allstars-outline-white leading-tight">
+            群星老师
+          </div>
+          <div class="text-2xl sm:text-3xl font-black tracking-wider allstars-outline-yellow leading-tight mt-0.5">
+            用心 + 专业
+          </div>
+        </div>
+      </div>
+
+      <!-- ★ 拥有20多年教学经验老师 横幅 -->
+      <div class="mt-4">
+        <span class="inline-block bg-[#fde047] text-[#0f3578] border border-[#0f3578]/20 text-xs sm:text-base font-black px-5 py-1.5 rounded-full shadow-xs">
+          ★ 拥有 20 多年教学经验老师 ★
+        </span>
+      </div>
+
+      <!-- 三大橘星亮点列表 -->
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-left max-w-3xl mx-auto">
+        <div class="bg-white/90 border border-amber-300 rounded-xl px-3.5 py-2.5 shadow-xs flex items-start gap-2">
+          <span class="text-orange-500 text-base leading-none mt-0.5">★</span>
+          <span class="text-xs sm:text-sm font-extrabold text-[#0f3578] leading-snug">
+            学生连续多年获得保送中学，获得学费全免
+          </span>
+        </div>
+        <div class="bg-white/90 border border-amber-300 rounded-xl px-3.5 py-2.5 shadow-xs flex items-start gap-2">
+          <span class="text-orange-500 text-base leading-none mt-0.5">★</span>
+          <span class="text-xs sm:text-sm font-extrabold text-[#0f3578] leading-snug">
+            独特学习法，各科程度明显进步
+          </span>
+        </div>
+        <div class="bg-white/90 border border-amber-300 rounded-xl px-3.5 py-2.5 shadow-xs flex items-start gap-2">
+          <span class="text-orange-500 text-base leading-none mt-0.5">★</span>
+          <span class="text-xs sm:text-sm font-extrabold text-[#0f3578] leading-snug">
+            假期 STEM 活动学习营
+          </span>
+        </div>
+      </div>
+
+      <!-- 报名表主标题横幅 -->
+      <div class="mt-5">
+        <div class="inline-block bg-gradient-to-r from-[#0f3578] via-[#1e40af] to-[#0f3578] text-white text-base sm:text-xl font-black px-6 py-2.5 rounded-2xl shadow-md tracking-wide border-2 border-amber-300">
+          ✨ ALLSTARS EDU · 2026–2027 新学生报名表格 ✨
+        </div>
+        <p class="text-xs text-slate-600 font-semibold mt-1.5">
+          New Student Registration Form · Pusat Jagaan Sinar Cahaya LK
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-3 sm:px-6 mt-5">
+    <!-- 顶部 5 步进度条卡片 -->
+    <div id="topProgressCard" class="bg-white rounded-2xl shadow-sm border-2 border-blue-200 p-4 sm:p-5 mb-6">
+      <div class="flex items-center justify-between text-xs sm:text-sm font-bold text-slate-700 mb-2.5">
+        <span id="stepTitleDisplay">第 1 / 5 步：了解收费与勾选课程 Courses & Fees</span>
+        <span id="stepPercentDisplay" class="text-[#0f3578] font-extrabold">20%</span>
+      </div>
+      <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+        <div id="progressBar" class="h-full bg-gradient-to-r from-[#0f3578] via-[#0284c7] to-[#f59e0b] transition-all duration-300 rounded-full" style="width: 20%;"></div>
+      </div>
+      <div class="grid grid-cols-5 gap-1 mt-3 text-[11px] text-center text-slate-400 font-semibold">
+        <div id="tab-1" class="text-[#0f3578] font-extrabold">1. 课程学费</div>
+        <div id="tab-2">2. 学生资料</div>
+        <div id="tab-3">3. 家长接送</div>
+        <div id="tab-4">4. 备注与目标</div>
+        <div id="tab-5">5. 汇款确认</div>
+      </div>
+    </div>
+
+    <!-- 全局错误提示栏 -->
+    <div id="errorAlert" class="hidden mb-5 p-4 rounded-xl bg-red-50 border-2 border-red-400 text-red-700 text-sm font-bold flex items-center justify-between shadow-md">
+      <span id="errorText">请先填写当前步骤的所有必填栏位（带 * 号）。</span>
+      <button type="button" onclick="hideError()" class="text-red-500 hover:text-red-800 font-extrabold ml-4">✕</button>
+    </div>
+
+    <!-- 主表单开始 -->
+    <form id="registrationForm" novalidate class="bg-white rounded-2xl shadow-md border border-slate-200 p-4 sm:p-8">
+
+      <!-- ================= STEP 1 (前页): 三栏式收费表与课程选择 ================= -->
+      <section class="step-section active" data-step="1">
+        <div class="border-b-2 border-blue-100 pb-4 mb-6">
+          <div class="inline-block bg-amber-100 text-[#0f3578] border border-amber-300 text-xs font-extrabold px-3 py-1 rounded-full mb-2">
+            STEP 1 · 先选课程再填资料
+          </div>
+          <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-[#0f3578] rounded-full inline-block"></span>
+            我们的服务与学费选择｜Tuition & Daycare Services <span class="text-red-600">*</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1">
+            请先了解以下课程收费，并在表格最右侧点击 <strong>【勾选】</strong> 选择您要报读的服务（可多选）。<br/>
+            新学生一次性报名费 <strong class="text-[#0f3578]">RM 90</strong>（包括我们精装 T-shirt）将自动计入首月总额，第 2 个月开始自动移除。
+          </p>
+        </div>
+
+        <div class="space-y-8" id="coursesContainer">
+
+          <!-- 表格 1：Primary Classes (S1 - S3) -->
+          <div class="rounded-2xl overflow-hidden shadow-md border border-slate-300 bg-white">
+            <div class="bg-[#9BC2E6] px-5 py-3.5 border-b border-slate-300">
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                Primary Classes (S1 - S3)｜一至三年级课程
+              </h3>
+            </div>
+
+            <div class="grid grid-cols-12 bg-[#FFF2CC] border-b border-slate-300 text-slate-900 font-bold text-xs sm:text-sm">
+              <div class="col-span-7 px-4 py-2.5 border-r border-slate-300">Course / 课程</div>
+              <div class="col-span-3 px-2 py-2.5 border-r border-slate-300 text-center">Tuition Fees / Month</div>
+              <div class="col-span-2 px-2 py-2.5 text-center">选择 / Select</div>
+            </div>
+
+            <!-- S1-S3 选项 1: 全人教育 + 周末写作班 (RM910) -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  全人教育 + 周末写作班
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2.5">
+                  Holistic Education + Daycare+ Creative Writing Class (BM, BC, ENG)
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <li>- 国语，英语，华语，数学，科学</li>
+                  <li>- 功课班，安亲班+全人教育活动班</li>
+                  <li>- 周末写作班（周六课程）</li>
+                  <li class="font-bold text-[#0f3578]">- 品格教育 （CBP）免费</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 910</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="[S1-S3] 全人教育 + 周末写作班 Holistic Education + Daycare + Creative Writing (RM910)"
+                  data-min="910" data-max="910"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- S1-S3 选项 2: RM670 -->
+            <label class="price-row grid grid-cols-12 bg-[#F7F7F7] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  [STD 1 - 3] 全科补习 + 功课辅导班 + 安亲班
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2.5">
+                  Holistic Education + Daycare
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <li>- 国语，英语，华语，数学，科学</li>
+                  <li>- 功课班，安亲班+全人教育活动班</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 670</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="[STD 1-3] 全科补习 + 功课辅导班 + 安亲班 Holistic Education + Daycare (RM670)"
+                  data-min="670" data-max="670"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- S1-S3 选项 3: RM570 -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  [STD 1 - 3] 全科补习 + 功课辅导班
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2.5">
+                  Holistic Education
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <li>- 国语，英语，华语，数学，科学</li>
+                  <li>- 功课班+全人教育活动班</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 570</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="[STD 1-3] 全科补习 + 功课辅导班 Holistic Education (RM570)"
+                  data-min="570" data-max="570"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- S1-S3 选项 4: RM450 -->
+            <label class="price-row grid grid-cols-12 bg-[#F7F7F7] hover:bg-slate-200/70 transition cursor-pointer">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  [STD 1 - 3] 全科补习 （5大主科）
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2.5">
+                  Holistic Education - Tuition Only
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <li>- 国语，英语，华语，数学，科学（自然与人类）</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 450</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="[STD 1-3] 全科补习 (5大主科) Holistic Education - Tuition Only (RM450)"
+                  data-min="450" data-max="450"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- 表格 2：Primary Classes (S4 - S6) -->
+          <div class="rounded-2xl overflow-hidden shadow-md border border-slate-300 bg-white">
+            <div class="bg-[#9BC2E6] px-5 py-3.5 border-b border-slate-300">
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                Primary Classes (S4 - S6)｜四至六年级课程
+              </h3>
+            </div>
+
+            <div class="grid grid-cols-12 bg-[#FFF2CC] border-b border-slate-300 text-slate-900 font-bold text-xs sm:text-sm">
+              <div class="col-span-7 px-4 py-2.5 border-r border-slate-300">Course / 课程</div>
+              <div class="col-span-3 px-2 py-2.5 border-r border-slate-300 text-center">Tuition Fees / Month</div>
+              <div class="col-span-2 px-2 py-2.5 text-center">选择 / Select</div>
+            </div>
+
+            <!-- S4-S6 选项 1: 全人教育 + 周末写作班 (RM940) -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  全人教育 + 周末写作班
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2.5">
+                  Holistic Education + Daycare+ Creative Writing Class (BM, BC, ENG)
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <li>- 国语，英语，华语，数学，科学，历史</li>
+                  <li>- 功课班，安亲班+全人教育活动班</li>
+                  <li>- 周末写作班（周六课程）</li>
+                  <li class="font-bold text-[#0f3578]">- 品格教育 （CBP）免费</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 940</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="[S4-S6] 全人教育 + 周末写作班 Holistic Education + Daycare + Creative Writing (RM940)"
+                  data-min="940" data-max="940"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- S4-S6 选项 2: RM700 -->
+            <label class="price-row grid grid-cols-12 bg-[#F7F7F7] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  [STD 4 - 6] 全科补习 + 功课辅导班 + 安亲班
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2.5">
+                  Holistic Education + Daycare
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <li>- 国语，英语，华语，数学，科学，历史</li>
+                  <li>- 功课班，安亲班+全人教育活动班</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 700</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="[STD 4-6] 全科补习 + 功课辅导班 + 安亲班 Holistic Education + Daycare (RM700)"
+                  data-min="700" data-max="700"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- S4-S6 选项 3: RM600 -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  [STD 4 - 6] 全科补习 + 功课辅导班
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2.5">
+                  Holistic Education
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <li>- 国语，英语，华语，数学，科学，历史</li>
+                  <li>- 功课班+全人教育活动班</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 600</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="[STD 4-6] 全科补习 + 功课辅导班 Holistic Education (RM600)"
+                  data-min="600" data-max="600"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- S4-S6 选项 4: RM480 -->
+            <label class="price-row grid grid-cols-12 bg-[#F7F7F7] hover:bg-slate-200/70 transition cursor-pointer">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  [STD 4 - 6] 全科补习 （6大主科）
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2.5">
+                  Holistic Education - Tuition Only
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <li>- 国语，英语，华语，数学，科学，历史</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 480</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="[STD 4-6] 全科补习 (6大主科) Holistic Education - Tuition Only (RM480)"
+                  data-min="480" data-max="480"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- 表格 3：Enrichment & Pre-Primary -->
+          <div class="rounded-2xl overflow-hidden shadow-md border border-slate-300 bg-white">
+            <div class="bg-[#9BC2E6] px-5 py-3.5 border-b border-slate-300">
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                Enrichment & Pre-Primary｜专项提升、幼小衔接与才艺
+              </h3>
+            </div>
+
+            <div class="grid grid-cols-12 bg-[#FFF2CC] border-b border-slate-300 text-slate-900 font-bold text-xs sm:text-sm">
+              <div class="col-span-7 px-4 py-2.5 border-r border-slate-300">Course / 课程</div>
+              <div class="col-span-3 px-2 py-2.5 border-r border-slate-300 text-center">Tuition Fees / Month</div>
+              <div class="col-span-2 px-2 py-2.5 text-center">选择 / Select</div>
+            </div>
+
+            <!-- 1. 周末写作班 (Allstars 学生 vs 非 Allstars 学生) -->
+            <div class="grid grid-cols-12 bg-[#EDEDED] border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300 flex flex-col justify-center">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">
+                  周末写作班
+                </div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2">
+                  Creative Writing Class
+                </div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800">
+                  <li>- 需进行入学程度评估（Need assessment）</li>
+                </ul>
+              </div>
+              <div class="col-span-5 grid grid-cols-5 divide-y divide-slate-300">
+                <label class="sub-price-row col-span-5 grid grid-cols-5 hover:bg-slate-200/70 transition cursor-pointer">
+                  <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                    <span class="text-sm sm:text-lg font-extrabold text-slate-900">RM 95 – RM 240</span>
+                    <span class="text-[10px] font-bold text-[#0f3578] bg-blue-100 px-2 py-0.5 rounded mt-1">Allstars 学生</span>
+                  </div>
+                  <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                    <input type="checkbox" name="courses"
+                      value="周末写作班 Creative Writing Class - Allstars 学生 (RM95-RM240)"
+                      data-min="95" data-max="240"
+                      class="course-checkbox w-5 h-5 accent-[#0f3578] cursor-pointer rounded" />
+                    <span class="select-badge mt-1.5 px-2 py-0.5 rounded text-[10px] font-bold border border-slate-400 text-slate-700">勾选</span>
+                  </div>
+                </label>
+                <label class="sub-price-row col-span-5 grid grid-cols-5 hover:bg-slate-200/70 transition cursor-pointer">
+                  <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                    <span class="text-sm sm:text-lg font-extrabold text-slate-900">RM 100 – RM 270</span>
+                    <span class="text-[10px] font-bold text-slate-700 bg-slate-200 px-2 py-0.5 rounded mt-1">非 Allstars 学生</span>
+                  </div>
+                  <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                    <input type="checkbox" name="courses"
+                      value="周末写作班 Creative Writing Class - 非 Allstars 学生 (RM100-RM270)"
+                      data-min="100" data-max="270"
+                      class="course-checkbox w-5 h-5 accent-[#0f3578] cursor-pointer rounded" />
+                    <span class="select-badge mt-1.5 px-2 py-0.5 rounded text-[10px] font-bold border border-slate-400 text-slate-700">勾选</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- 2. 数学巩固班 (RM95) -->
+            <label class="price-row grid grid-cols-12 bg-[#F7F7F7] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">数学巩固班</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5">Math Enhance class</div>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 95</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="数学巩固班 Math Enhance class (RM95)"
+                  data-min="95" data-max="95"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- 3. 马来文加强班 (RM110) -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">马来文加强班</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5 mb-2">BM Enhance Class</div>
+                <ul class="space-y-1 text-xs sm:text-sm text-slate-800">
+                  <li>- 根据学生实际程度分班指导</li>
+                </ul>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 110</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="马来文加强班 BM Enhance Class (RM110)"
+                  data-min="110" data-max="110"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- 4. 品格教育课程 CBP (Allstars 学生 RM60 vs 非 Allstars 学生 RM100) -->
+            <div class="grid grid-cols-12 bg-[#F7F7F7] border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300 flex flex-col justify-center">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">品格教育课程（Year 2027）</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5">Character Building Program (CBP)</div>
+              </div>
+              <div class="col-span-5 grid grid-cols-5 divide-y divide-slate-300">
+                <label class="sub-price-row col-span-5 grid grid-cols-5 hover:bg-slate-200/70 transition cursor-pointer">
+                  <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                    <span class="text-lg sm:text-2xl font-extrabold text-slate-900">RM 60</span>
+                    <span class="text-[10px] font-bold text-[#0f3578] bg-blue-100 px-2 py-0.5 rounded mt-1">Allstars 学生</span>
+                  </div>
+                  <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                    <input type="checkbox" name="courses"
+                      value="品格教育课程 Character Building Program (CBP) - Allstars 学生 (RM60)"
+                      data-min="60" data-max="60"
+                      class="course-checkbox w-5 h-5 accent-[#0f3578] cursor-pointer rounded" />
+                    <span class="select-badge mt-1.5 px-2 py-0.5 rounded text-[10px] font-bold border border-slate-400 text-slate-700">勾选</span>
+                  </div>
+                </label>
+                <label class="sub-price-row col-span-5 grid grid-cols-5 hover:bg-slate-200/70 transition cursor-pointer">
+                  <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                    <span class="text-lg sm:text-2xl font-extrabold text-slate-900">RM 100</span>
+                    <span class="text-[10px] font-bold text-slate-700 bg-slate-200 px-2 py-0.5 rounded mt-1">非 Allstars 学生</span>
+                  </div>
+                  <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                    <input type="checkbox" name="courses"
+                      value="品格教育课程 Character Building Program (CBP) - 非 Allstars 学生 (RM100)"
+                      data-min="100" data-max="100"
+                      class="course-checkbox w-5 h-5 accent-[#0f3578] cursor-pointer rounded" />
+                    <span class="select-badge mt-1.5 px-2 py-0.5 rounded text-[10px] font-bold border border-slate-400 text-slate-700">勾选</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- 5. 升小一课程（按月付费 RM168） -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">升小一课程（按月付费）</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5">Pre-Primary One Course (Monthly Payment)</div>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 168</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="升小一课程 Pre-Primary One Course (Monthly RM168)"
+                  data-min="168" data-max="168"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- 6. 升小一课程（4个月全期优惠 RM638） -->
+            <label class="price-row grid grid-cols-12 bg-[#F7F7F7] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">升小一课程（4个月全期优惠）</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5">Pre-Primary One Course (Full 4 Months Payment)</div>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 638</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="升小一课程 Pre-Primary One Course (Full 4 Months RM638)"
+                  data-min="638" data-max="638"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- 7. STEM 假期活动班 (RM599) -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">STEM HOLIDAY PROGRAMME 假期活动班 + 安亲班</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5">** For non Allstars student</div>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 599</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="STEM HOLIDAY PROGRAMME 假期活动班 + 安亲班 - For non Allstars student (RM599)"
+                  data-min="599" data-max="599"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+          </div>
+
+          <!-- 表格 4：Daycare & Transportation -->
+          <div class="rounded-2xl overflow-hidden shadow-md border border-slate-300 bg-white">
+            <div class="bg-[#9BC2E6] px-5 py-3.5 border-b border-slate-300">
+              <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                Daycare & Transportation｜安亲膳食,功课班与校车接送
+              </h3>
+            </div>
+
+            <div class="grid grid-cols-12 bg-[#FFF2CC] border-b border-slate-300 text-slate-900 font-bold text-xs sm:text-sm">
+              <div class="col-span-7 px-4 py-2.5 border-r border-slate-300">Service / 服务项目</div>
+              <div class="col-span-3 px-2 py-2.5 border-r border-slate-300 text-center">Fees / Month</div>
+              <div class="col-span-2 px-2 py-2.5 text-center">选择 / Select</div>
+            </div>
+
+            <!-- 1. 安亲班+功课班 (RM400) -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">安亲班+功课班</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5">Daycare+homework class</div>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 400</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="安亲班+功课班 Daycare+homework class (RM400)"
+                  data-min="400" data-max="400"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- 2. 十一哩华小单程 Batu 11 - 1 way -->
+            <label class="price-row grid grid-cols-12 bg-[#F7F7F7] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">校车接送（一年级-六年级 - 十一哩华小单程）</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5">Batu 11 - 1 way</div>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-3xl font-extrabold text-slate-900">RM 80</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="校车接送 (一年级-六年级 - 十一哩华小单程) Batu 11 - 1 way (RM80)"
+                  data-min="80" data-max="80"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- 3. 私家车接送 (RM150+) -->
+            <label class="price-row grid grid-cols-12 bg-[#EDEDED] hover:bg-slate-200/70 transition cursor-pointer border-b border-slate-300">
+              <div class="col-span-7 p-4 sm:p-5 border-r border-slate-300">
+                <div class="text-base sm:text-lg font-extrabold text-slate-900">私家车接送</div>
+                <div class="text-xs sm:text-sm font-medium text-slate-700 mt-0.5">Private Car Transportation - RM150 onward by request</div>
+              </div>
+              <div class="col-span-3 p-3 border-r border-slate-300 flex flex-col items-center justify-center text-center">
+                <span class="text-xl sm:text-2xl font-extrabold text-slate-900">RM 150 起</span>
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" name="courses"
+                  value="私家车接送 Private Car Transportation - RM150 onward by request"
+                  data-min="150" data-max="150" data-plus="true"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </label>
+
+            <!-- 4. Other 自定义选项 -->
+            <div class="price-row grid grid-cols-12 bg-[#F7F7F7] transition">
+              <div class="col-span-10 p-4 sm:p-5 border-r border-slate-300">
+                <label for="courseOtherCheck" class="text-base font-extrabold text-slate-900 cursor-pointer block">
+                  其他课程或接送需求｜Other:
+                </label>
+                <input type="text" id="courseOtherText" placeholder="请在此注明其他需求 Please specify..."
+                  class="mt-2 w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-sm outline-none focus:border-[#0f3578]" />
+              </div>
+              <div class="col-span-2 p-2 flex flex-col items-center justify-center">
+                <input type="checkbox" id="courseOtherCheck" data-min="0" data-max="0"
+                  class="course-checkbox w-6 h-6 accent-[#0f3578] cursor-pointer rounded" />
+                <span class="select-badge mt-2 px-2 py-0.5 rounded text-[11px] font-bold border border-slate-400 text-slate-700">勾选</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 固定式学费结算卡片 -->
+          <div class="rounded-2xl bg-gradient-to-r from-[#0f3578] via-[#1e40af] to-[#0f3578] text-white p-5 sm:p-6 shadow-md border-2 border-amber-300">
+            <div class="text-xs font-extrabold uppercase tracking-wider text-amber-300 mb-3">
+              📊 您的学费结算预览｜Tuition Fee Summary
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-white/15 backdrop-blur-xs rounded-xl p-4 border border-white/25">
+                <span class="text-xs text-amber-100 font-semibold block">首月总付费（含一次性报名费 RM90 赠精装 T-shirt）</span>
+                <span id="inlineFirstMonth" class="text-2xl sm:text-3xl font-black text-amber-300 mt-1 block">RM 90</span>
+              </div>
+              <div class="bg-white/15 backdrop-blur-xs rounded-xl p-4 border border-white/25">
+                <span class="text-xs text-white font-semibold block">第 2 个月开始每月总付费（已移除 RM90 报名费）</span>
+                <span id="inlineSubMonth" class="text-2xl sm:text-3xl font-black text-white mt-1 block">RM 0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 加入月份 -->
+          <div class="bg-amber-50/80 p-5 rounded-2xl border-2 border-amber-300">
+            <label class="block text-sm font-extrabold text-slate-900 mb-1.5">
+              🗓️ 加入月份｜Joining Month <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-600 mt-0.5">请填写您希望孩子开始上课的月份（例如：2026年11月 / 2027年1月）</span>
+            </label>
+            <input type="text" name="joiningMonth" data-label="加入月份 Joining Month" required placeholder="例如：2026年11月 / 2027年1月 (Nov 2026 / Jan 2027)"
+              class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm font-medium" />
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= STEP 2: 学生基本资料 ================= -->
+      <section class="step-section" data-step="2">
+        <div class="border-b-2 border-blue-100 pb-4 mb-6">
+          <div class="inline-block bg-amber-100 text-[#0f3578] border border-amber-300 text-xs font-extrabold px-3 py-1 rounded-full mb-2">
+            STEP 2 · 填写学生资料
+          </div>
+          <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-[#0f3578] rounded-full inline-block"></span>
+            学生基本资料｜Student Particulars
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">请填写与报生纸或 MyKid 一致的学生资料（带 <span class="text-red-600 font-bold">*</span> 为必填项）。</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              01. 学生中文姓名 <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">Chinese Name（若无可填 N/A）</span>
+            </label>
+            <input type="text" name="chineseName" data-label="01. 学生中文姓名" required placeholder="例如：陈小明"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] focus:ring-2 focus:ring-[#0f3578]/15 outline-none transition text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              02. 学生英文全名 <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">Student's English Name (As per MyKid)</span>
+            </label>
+            <input type="text" name="englishName" data-label="02. 学生英文全名" required placeholder="e.g., Tan Xiao Ming"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] focus:ring-2 focus:ring-[#0f3578]/15 outline-none transition text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              03. 性别 <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">Gender</span>
+            </label>
+            <div class="grid grid-cols-2 gap-3 pt-1" id="genderGroup">
+              <label class="option-card flex items-center justify-center gap-2 p-2.5 rounded-xl border border-slate-300 cursor-pointer transition text-sm font-semibold">
+                <input type="radio" name="gender" data-label="03. 性别 Gender" value="女 / Female" required class="accent-[#0f3578]" />
+                <span>👧 女 / Female</span>
+              </label>
+              <label class="option-card flex items-center justify-center gap-2 p-2.5 rounded-xl border border-slate-300 cursor-pointer transition text-sm font-semibold">
+                <input type="radio" name="gender" data-label="03. 性别 Gender" value="男 / Male" required class="accent-[#0f3578]" />
+                <span>👦 男 / Male</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              04. 年龄 <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">Age</span>
+            </label>
+            <input type="text" name="age" data-label="04. 年龄 Age" required placeholder="例如：7 岁 / 7 years old"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] focus:ring-2 focus:ring-[#0f3578]/15 outline-none transition text-sm" />
+          </div>
+
+          <div class="sm:col-span-2">
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              05. 学生 MyKid Card 号码 <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">Student's MyKid Card Number</span>
+            </label>
+            <input type="text" name="mykid" data-label="05. 学生 MyKid Card 号码" required placeholder="例如：190101-14-XXXX"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] focus:ring-2 focus:ring-[#0f3578]/15 outline-none transition text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              06. 就读学校 <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">School</span>
+            </label>
+            <input type="text" name="school" data-label="06. 就读学校 School" required placeholder="例如：十一哩华小 SJK(C) Batu 11"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] focus:ring-2 focus:ring-[#0f3578]/15 outline-none transition text-sm" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              07. 2026 班级 / Year 2027 - Std 1 <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">2026 Class / Year 2027 - Std 1</span>
+            </label>
+            <input type="text" name="studentClass" data-label="07. 2026 班级 / Year 2027 - Std 1" required placeholder="例如：2026 2M 或 2027 Std 1"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] focus:ring-2 focus:ring-[#0f3578]/15 outline-none transition text-sm" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STEP 3: 家长联络与接送资料 ================= -->
+      <section class="step-section" data-step="3">
+        <div class="border-b-2 border-blue-100 pb-4 mb-6">
+          <div class="inline-block bg-amber-100 text-[#0f3578] border border-amber-300 text-xs font-extrabold px-3 py-1 rounded-full mb-2">
+            STEP 3 · 家长联络与接送安全
+          </div>
+          <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-[#0f3578] rounded-full inline-block"></span>
+            家长联络与接送安全｜Parent & Pick-up Details
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">请提供两位家长或监护人的联系方式，以保障紧急联络与接送安全。</p>
+        </div>
+
+        <div class="bg-blue-50/60 p-4 rounded-xl border border-blue-200 mb-5">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-[#0f3578] mb-3">第一家长 / 监护人 Primary Parent / Guardian</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-bold text-slate-800 mb-1">
+                08. 家长/监护人姓名 <span class="text-red-600">*</span>
+                <span class="block text-xs font-normal text-slate-500">Parent's / Guardian's Name</span>
+              </label>
+              <input type="text" name="parent1Name" data-label="08. 第一家长/监护人姓名" required placeholder="Full Name"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-slate-800 mb-1">
+                09. 家长电话号码 <span class="text-red-600">*</span>
+                <span class="block text-xs font-normal text-slate-500">Parent's Phone Number</span>
+              </label>
+              <input type="tel" name="parent1Phone" data-label="09. 第一家长电话号码" required placeholder="e.g., 012-3456789"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-slate-800 mb-1">
+                10. 与学生关系 <span class="text-red-600">*</span>
+                <span class="block text-xs font-normal text-slate-500">Relationship</span>
+              </label>
+              <input type="text" name="parent1Relation" data-label="10. 第一家长与学生关系" required placeholder="例如：母亲 Mother"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-amber-50/60 p-4 rounded-xl border border-amber-200 mb-5">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-amber-900 mb-3">第二家长 / 监护人 Second Parent / Guardian</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-sm font-bold text-slate-800 mb-1">
+                11. 第二家长/监护人名字 <span class="text-red-600">*</span>
+                <span class="block text-xs font-normal text-slate-500">Second Parent's / Guardian's Name</span>
+              </label>
+              <input type="text" name="parent2Name" data-label="11. 第二家长/监护人名字" required placeholder="Full Name"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-slate-800 mb-1">
+                12. 手机号码 <span class="text-red-600">*</span>
+                <span class="block text-xs font-normal text-slate-500">Mobile Phone Number</span>
+              </label>
+              <input type="tel" name="parent2Phone" data-label="12. 第二家长手机号码" required placeholder="e.g., 012-9876543"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-slate-800 mb-1">
+                13. 与学生关系 <span class="text-red-600">*</span>
+                <span class="block text-xs font-normal text-slate-500">Relationship</span>
+              </label>
+              <input type="text" name="parent2Relation" data-label="13. 第二家长与学生关系" required placeholder="例如：父亲 Father"
+                class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              14. 住家地址 <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">Home Address</span>
+            </label>
+            <textarea name="address" data-label="14. 住家地址 Home Address" rows="2" required placeholder="请填写完整居住地址 Full residential address"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] outline-none text-sm"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              15. 接送学生车辆车牌（从中心回家）<span class="text-xs font-normal text-slate-400">（选填 Optional）</span>
+              <span class="block text-xs font-normal text-slate-500">For Who Applicable: Car Plate Number - Center to home</span>
+            </label>
+            <input type="text" name="carPlate" placeholder="例如：WXX 1234 / VXX 8888"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STEP 4: 健康备注、Google ID 与成长期望 ================= -->
+      <section class="step-section" data-step="4">
+        <div class="border-b-2 border-blue-100 pb-4 mb-6">
+          <div class="inline-block bg-amber-100 text-[#0f3578] border border-amber-300 text-xs font-extrabold px-3 py-1 rounded-full mb-2">
+            STEP 4 · 健康备注与成长期望
+          </div>
+          <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-[#0f3578] rounded-full inline-block"></span>
+            健康备注、学习账号与成长目标｜Support & Goals
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">帮助我们的老师更全面地照顾孩子的日常饮食与全人教育成长。</p>
+        </div>
+
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              16. 特别备注（如：食物敏感、健康状况）<span class="text-xs font-normal text-slate-400">（选填 Optional）</span>
+              <span class="block text-xs font-normal text-slate-500">Special Remark (e.g., Food Allergy / Medical Condition)</span>
+            </label>
+            <textarea name="specialRemark" rows="2" placeholder="若无特殊状况可留空 / Leave blank if none"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] outline-none text-sm"></textarea>
+          </div>
+
+          <div class="bg-blue-50/70 p-4 rounded-xl border border-blue-200">
+            <p class="text-xs font-extrabold text-[#0f3578] mb-3">💻 功课辅导班专用｜For Homework Class Only（选填 Optional）</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-bold text-slate-800 mb-1">
+                  17. Google ID User Name
+                  <span class="block text-xs font-normal text-slate-500">功课辅导班 / Homework Class</span>
+                </label>
+                <input type="text" name="googleUser" placeholder="m-xxxxxxxx@moe-dl.edu.my"
+                  class="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+              </div>
+              <div>
+                <label class="block text-sm font-bold text-slate-800 mb-1">
+                  18. Google ID Passcode / Password
+                  <span class="block text-xs font-normal text-slate-500">功课辅导班 / Homework Class</span>
+                </label>
+                <input type="text" name="googlePass" placeholder="学校 Google 登入通行码"
+                  class="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+              </div>
+            </div>
+          </div>
+
+          <div id="goalsSectionBox">
+            <div class="flex items-center justify-between mb-2">
+              <label class="block text-sm font-bold text-slate-800">
+                19. 您最想看到孩子哪一方面的进步？（请最多选择 3 项）<span class="text-red-600">*</span>
+                <span class="block text-xs font-normal text-slate-500">In which areas do you most hope your child will improve? Please choose up to 3 items only.</span>
+              </label>
+              <span id="goalCountBadge" class="shrink-0 px-3 py-1 rounded-full text-xs font-extrabold bg-blue-100 text-[#0f3578]">已选 0 / 3</span>
+            </div>
+
+            <div class="space-y-2.5" id="goalsContainer">
+              <label class="option-card flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer transition">
+                <input type="checkbox" name="improvementGoals" value="📚 学业基础与成绩｜Academic Competence" class="goal-checkbox mt-1 accent-[#0f3578]" />
+                <div class="text-sm">
+                  <div class="font-bold text-slate-800">📚 学业基础与成绩｜巩固基础、学科理解与成绩提升</div>
+                  <div class="text-xs text-slate-500">Academic Competence | Solid foundation, subject mastery & grade improvement</div>
+                </div>
+              </label>
+
+              <label class="option-card flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer transition">
+                <input type="checkbox" name="improvementGoals" value="🌱 良好习惯养成｜Habit Building" class="goal-checkbox mt-1 accent-[#0f3578]" />
+                <div class="text-sm">
+                  <div class="font-bold text-slate-800">🌱 良好习惯养成｜自律专注、责任心与时间管理</div>
+                  <div class="text-xs text-slate-500">Habit Building | Self-discipline, responsibility & time management</div>
+                </div>
+              </label>
+
+              <label class="option-card flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer transition">
+                <input type="checkbox" name="improvementGoals" value="🧠 思维与解题能力｜Cognitive & Thinking Skills" class="goal-checkbox mt-1 accent-[#0f3578]" />
+                <div class="text-sm">
+                  <div class="font-bold text-slate-800">🧠 思维与解题能力｜逻辑推理、创意思维与独立解决问题</div>
+                  <div class="text-xs text-slate-500">Cognitive & Thinking Skills | Logical reasoning, creativity & problem-solving</div>
+                </div>
+              </label>
+
+              <label class="option-card flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer transition">
+                <input type="checkbox" name="improvementGoals" value="🎤 沟通表达与自信｜Expression & Confidence" class="goal-checkbox mt-1 accent-[#0f3578]" />
+                <div class="text-sm">
+                  <div class="font-bold text-slate-800">🎤 沟通表达与自信｜人前表达、清晰沟通与自信心塑造</div>
+                  <div class="text-xs text-slate-500">Expression & Confidence | Clear communication, public speaking & self-assurance</div>
+                </div>
+              </label>
+
+              <label class="option-card flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer transition">
+                <input type="checkbox" name="improvementGoals" value="❤️ 心理韧性与情绪管理｜Mental Resilience" class="goal-checkbox mt-1 accent-[#0f3578]" />
+                <div class="text-sm">
+                  <div class="font-bold text-slate-800">❤️ 心理韧性与情绪管理｜情绪调节、抗挫折力与积极成长心态</div>
+                  <div class="text-xs text-slate-500">Mental Resilience | Emotional regulation, adversity coping & positive mindset</div>
+                </div>
+              </label>
+
+              <label class="option-card flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer transition">
+                <input type="checkbox" name="improvementGoals" value="🤝 社交与人际交往｜Social & Interpersonal Skills" class="goal-checkbox mt-1 accent-[#0f3578]" />
+                <div class="text-sm">
+                  <div class="font-bold text-slate-800">🤝 社交与人际交往｜团队协作、同理心与同伴关系发展</div>
+                  <div class="text-xs text-slate-500">Social & Interpersonal Skills | Team collaboration, empathy & peer interaction</div>
+                </div>
+              </label>
+
+              <div class="option-card p-3.5 rounded-xl border border-slate-200 transition">
+                <label class="flex items-center gap-3 cursor-pointer text-sm font-bold text-slate-800">
+                  <input type="checkbox" id="goalOtherCheck" class="goal-checkbox accent-[#0f3578]" />
+                  <span>其他｜Other:</span>
+                </label>
+                <input type="text" id="goalOtherText" placeholder="请注明您的其他期望 Please specify..."
+                  class="mt-2 w-full px-3 py-1.5 rounded-lg border border-slate-200 text-sm outline-none focus:border-[#0f3578]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STEP 5: 推荐渠道与汇款确认 ================= -->
+      <section class="step-section" data-step="5">
+        <div class="border-b-2 border-blue-100 pb-4 mb-6">
+          <div class="inline-block bg-amber-100 text-[#0f3578] border border-amber-300 text-xs font-extrabold px-3 py-1 rounded-full mb-2">
+            STEP 5 · 最后一步：汇款确认与提交
+          </div>
+          <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+            <span class="w-2 h-6 bg-[#0f3578] rounded-full inline-block"></span>
+            认识渠道与汇款确认｜Referral & Payment
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">完成最后两道题并核对您的学费结算，点击提交后将为您生成 WhatsApp 报名摘要。</p>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <label class="block text-sm font-bold text-slate-800 mb-1">
+              22. 介绍人 <span class="text-xs font-normal text-slate-400">（选填 Optional）</span>
+              <span class="block text-xs font-normal text-slate-500">Referral by</span>
+            </label>
+            <input type="text" name="referralBy" placeholder="如有介绍人请填写姓名"
+              class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:border-[#0f3578] outline-none text-sm" />
+          </div>
+
+          <div id="knowUsSectionBox">
+            <label class="block text-sm font-bold text-slate-800 mb-2">
+              23. 您怎样认识我们？ <span class="text-red-600">*</span>
+              <span class="block text-xs font-normal text-slate-500">How did you get to know us?</span>
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="knowUsContainer">
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="朋友介绍 Friend referral" class="know-checkbox accent-[#0f3578]" />
+                <span>朋友介绍｜Friend referral</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="学生介绍 Students referral" class="know-checkbox accent-[#0f3578]" />
+                <span>学生介绍｜Students referral</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="学校老师介绍 Teacher's referral" class="know-checkbox accent-[#0f3578]" />
+                <span>学校老师介绍｜Teacher's referral</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="家长群 Parent Group" class="know-checkbox accent-[#0f3578]" />
+                <span>家长群｜Parent Group</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="面子书 Facebook Instagram" class="know-checkbox accent-[#0f3578]" />
+                <span>面子书｜Facebook / Instagram</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="抖音 小红书 TIKTOK" class="know-checkbox accent-[#0f3578]" />
+                <span>抖音 / 小红书｜TikTok / XHS</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="报纸 Newspaper" class="know-checkbox accent-[#0f3578]" />
+                <span>报纸｜Newspaper</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="广告Banner" class="know-checkbox accent-[#0f3578]" />
+                <span>广告横幅｜Outdoor Banner</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="传单/ Flyers" class="know-checkbox accent-[#0f3578]" />
+                <span>传单｜Flyers</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium">
+                <input type="checkbox" name="knowUs" value="路过中心看到 Passby our center" class="know-checkbox accent-[#0f3578]" />
+                <span>路过中心看到｜Passby our center</span>
+              </label>
+              <label class="option-card flex items-center gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer text-sm font-medium sm:col-span-2">
+                <input type="checkbox" name="knowUs" value="兄弟姐妹在我们中心补习" class="know-checkbox accent-[#0f3578]" />
+                <span>兄弟姐妹在我们中心补习｜Sibling studying at our center</span>
+              </label>
+              <div class="option-card p-3 rounded-xl border border-slate-200 sm:col-span-2">
+                <label class="flex items-center gap-2.5 cursor-pointer text-sm font-bold">
+                  <input type="checkbox" id="knowOtherCheck" class="know-checkbox accent-[#0f3578]" />
+                  <span>其他｜Other:</span>
+                </label>
+                <input type="text" id="knowOtherText" placeholder="请注明 Please specify..."
+                  class="mt-2 w-full px-3 py-1.5 rounded-lg border border-slate-200 text-sm outline-none focus:border-[#0f3578]" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 最终费用核对卡片 -->
+          <div class="rounded-2xl bg-blue-50/70 border-2 border-blue-200 p-5">
+            <div class="text-xs font-extrabold uppercase tracking-wider text-[#0f3578] mb-3">
+              🧾 您的费用最终结算｜Final Fee Breakdown
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-white rounded-xl p-3.5 border border-blue-200">
+                <span class="text-xs text-slate-500 font-semibold block">首月总付费（含一次性报名费 RM90 赠精装 T-shirt）</span>
+                <span id="finalFirstMonth" class="text-2xl font-black text-[#0f3578] mt-1 block">RM 90</span>
+              </div>
+              <div class="bg-white rounded-xl p-3.5 border border-blue-200">
+                <span class="text-xs text-slate-500 font-semibold block">第 2 个月开始每月总付费（已移除 RM90 报名费）</span>
+                <span id="finalSubMonth" class="text-2xl font-black text-emerald-700 mt-1 block">RM 0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 汇款账户高级卡片（Public Bank 3226008231 及 0182288206） -->
+          <div class="rounded-2xl bg-gradient-to-br from-slate-900 via-[#0f3578] to-slate-900 text-white p-5 sm:p-6 shadow-md border-2 border-amber-400">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-widest text-amber-300">💳 官方汇款户头 Bank Transfer Details</span>
+              <span class="text-xs bg-white/10 px-2.5 py-1 rounded-full font-semibold">Public Bank</span>
+            </div>
+            <p class="text-sm text-amber-200 font-semibold">ALLSTARS EDU LK 补习中心</p>
+            <p class="text-base sm:text-lg font-extrabold tracking-wide mt-0.5">Pusat Jagaan Sinar Cahaya LK</p>
+
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white/10 rounded-xl p-3.5 border border-white/15">
+              <div>
+                <span class="text-xs text-slate-300 block">Public Bank Account Number</span>
+                <span id="bankAccNum" class="text-xl font-mono font-extrabold tracking-wider text-amber-300">3226008231</span>
+              </div>
+              <button type="button" onclick="copyBankAccount()" id="copyBtn"
+                class="px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs transition shrink-0">
+                复制银行账号 Copy Account
+              </button>
+            </div>
+            <p class="text-xs text-slate-200 mt-3">
+              📲 提交表格后将为您打开 WhatsApp (<strong class="text-amber-300">0182288206</strong>)，您可直接附上转账收据（Bank-in Slip）。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 步骤切换按钮栏 -->
+      <div class="mt-8 pt-5 border-t border-slate-200 flex items-center justify-between gap-4">
+        <button type="button" id="prevBtn" onclick="changeStep(-1)"
+          class="hidden px-5 py-2.5 rounded-xl border-2 border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-sm transition">
+          ← 上一步 Back
+        </button>
+        <div class="ml-auto flex items-center gap-3">
+          <button type="button" id="nextBtn" onclick="changeStep(1)"
+            class="px-6 py-3 rounded-xl bg-[#0f3578] hover:bg-blue-800 text-amber-300 font-extrabold text-sm shadow-md transition">
+            已选好课程，开始填写学生资料 →
+          </button>
+          <button type="submit" id="submitBtn"
+            class="hidden px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm shadow-lg transition">
+            ✅ 提交报名并跳转 WhatsApp
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- 关键防遮挡安全留白垫高区 -->
+    <div class="h-44 sm:h-36" aria-hidden="true"></div>
+  </main>
+
+  <!-- 底部紧凑型悬浮统计栏 -->
+  <div class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t-2 border-[#0f3578] shadow-2xl z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3">
+      <div id="feeBreakdownText" class="text-xs font-bold text-slate-700 truncate">
+        当前已选 0 项服务
+      </div>
+      <div class="flex items-center gap-4 sm:gap-6 shrink-0">
+        <div class="text-right">
+          <span class="text-[10px] sm:text-[11px] text-slate-500 font-semibold block">首月总计 (含RM90报名费)</span>
+          <span id="firstMonthDisplay" class="text-base sm:text-xl font-black text-[#0f3578]">RM 90</span>
+        </div>
+        <div class="h-7 w-px bg-slate-200"></div>
+        <div class="text-right">
+          <span class="text-[10px] sm:text-[11px] text-emerald-700 font-bold block">第2月起总付费 (移除RM90)</span>
+          <span id="subsequentMonthDisplay" class="text-base sm:text-xl font-black text-emerald-700">RM 0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 提交成功与一键跳转 WhatsApp 弹窗 -->
+  <div id="successModal" class="hidden fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 text-center shadow-2xl border-2 border-[#0f3578]">
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 font-bold">
+        ✓
+      </div>
+      <h3 class="text-xl font-extrabold text-slate-900">报名资料已成功提交！</h3>
+      <p class="text-xs text-slate-500 mt-1">Registration Saved Successfully</p>
+      <p class="text-sm text-slate-600 mt-4 leading-relaxed">
+        您的报名资料已安全存入 <strong>Allstars 群星老师</strong> 系统。<br/>
+        请点击下方绿色按钮打开 WhatsApp 发送报名摘要与转账收据（Bank-in Slip）：
+      </p>
+      <a id="waRedirectBtn" href="#" target="_blank" rel="noopener noreferrer"
+        class="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm shadow-lg transition">
+        📲 点击打开 WhatsApp 发送摘要 (0182288206)
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // ★ 已嵌入你的 Google Apps Script Web App URL，无需再修改：
+    // =========================================================================
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwo8Xg5IJoJ5xLuskRsWDPI37hNAzONdCQEAhVSHuf0TUsPXk9m1swChb9tlDPBGI_A/exec";
+    const WHATSAPP_NUMBER = "60182288206";
+    const REGISTRATION_FEE = 90;
+
+    let currentStep = 1;
+    const totalSteps = 5;
+    const stepTitles = [
+      "第 1 / 5 步：了解收费与勾选课程 Courses & Fees",
+      "第 2 / 5 步：学生基本资料 Student Particulars",
+      "第 3 / 5 步：家长联络与接送安全 Parent & Pick-up",
+      "第 4 / 5 步：健康备注与成长目标 Support & Goals",
+      "第 5 / 5 步：认识渠道与汇款确认 Referral & Payment"
+    ];
+
+    document.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => el.classList.remove('input-error'));
+      el.addEventListener('change', () => el.classList.remove('input-error'));
+    });
+
+    const goalCheckboxes = document.querySelectorAll('.goal-checkbox');
+    const goalCountBadge = document.getElementById('goalCountBadge');
+
+    goalCheckboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const checkedCount = document.querySelectorAll('.goal-checkbox:checked').length;
+        goalCountBadge.textContent = `已选 ${checkedCount} / 3`;
+        goalCheckboxes.forEach(item => {
+          const card = item.closest('.option-card');
+          if (!item.checked && checkedCount >= 3) {
+            item.disabled = true;
+            card.classList.add('disabled-card');
+          } else {
+            item.disabled = false;
+            card.classList.remove('disabled-card');
+          }
+        });
+      });
+    });
+
+    const courseCheckboxes = document.querySelectorAll('.course-checkbox');
+    const firstMonthDisplay = document.getElementById('firstMonthDisplay');
+    const subsequentMonthDisplay = document.getElementById('subsequentMonthDisplay');
+    const inlineFirstMonth = document.getElementById('inlineFirstMonth');
+    const inlineSubMonth = document.getElementById('inlineSubMonth');
+    const finalFirstMonth = document.getElementById('finalFirstMonth');
+    const finalSubMonth = document.getElementById('finalSubMonth');
+    const feeBreakdownText = document.getElementById('feeBreakdownText');
+
+    function calculateTotalFee() {
+      let subMin = 0;
+      let subMax = 0;
+      let hasPlus = false;
+      let count = 0;
+
+      courseCheckboxes.forEach(cb => {
+        if (cb.checked) {
+          count++;
+          subMin += parseInt(cb.dataset.min || "0", 10);
+          subMax += parseInt(cb.dataset.max || "0", 10);
+          if (cb.dataset.plus === "true") hasPlus = true;
+        }
+      });
+
+      const subFormatted = (subMin === subMax)
+        ? `RM ${subMin}${hasPlus ? '+' : ''}`
+        : `RM ${subMin} – RM ${subMax}${hasPlus ? '+' : ''}`;
+
+      const firstMin = subMin + REGISTRATION_FEE;
+      const firstMax = subMax + REGISTRATION_FEE;
+      const firstFormatted = (subMin === subMax)
+        ? `RM ${firstMin}${hasPlus ? '+' : ''}`
+        : `RM ${firstMin} – RM ${firstMax}${hasPlus ? '+' : ''}`;
+
+      firstMonthDisplay.textContent = firstFormatted;
+      subsequentMonthDisplay.textContent = subFormatted;
+      inlineFirstMonth.textContent = firstFormatted;
+      inlineSubMonth.textContent = subFormatted;
+      if (finalFirstMonth) finalFirstMonth.textContent = firstFormatted;
+      if (finalSubMonth) finalSubMonth.textContent = subFormatted;
+
+      feeBreakdownText.textContent = count > 0
+        ? `✅ 已选 ${count} 项服务`
+        : `当前已选 0 项服务`;
+
+      return {
+        firstFormatted: firstFormatted,
+        subsequentFormatted: subFormatted,
+        count: count
+      };
+    }
+
+    courseCheckboxes.forEach(cb => cb.addEventListener('change', calculateTotalFee));
+
+    function showError(msg, targetEl) {
+      const alertBox = document.getElementById('errorAlert');
+      document.getElementById('errorText').textContent = msg;
+      alertBox.classList.remove('hidden');
+
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    function hideError() {
+      document.getElementById('errorAlert').classList.add('hidden');
+    }
+
+    function validateStep(step) {
+      hideError();
+      const section = document.querySelector(`.step-section[data-step="${step}"]`);
+      if (!section) return true;
+
+      if (step === 1) {
+        const coursesChecked = document.querySelectorAll('.course-checkbox:checked').length;
+        if (coursesChecked === 0) {
+          showError("⚠️ 请先在收费表中勾选至少 1 项您要报读的课程或服务。", document.getElementById('coursesContainer'));
+          return false;
+        }
+      }
+
+      const requiredInputs = section.querySelectorAll('input[required], textarea[required]');
+      for (const input of requiredInputs) {
+        const labelName = input.getAttribute('data-label') || input.name;
+        if (input.type === 'radio') {
+          const radioGroup = section.querySelectorAll(`input[name="${input.name}"]:checked`);
+          if (radioGroup.length === 0) {
+            showError(`⚠️ 请先选择必填项：【${labelName}】`, document.getElementById('genderGroup'));
+            return false;
+          }
+        } else if (!input.value || !input.value.trim()) {
+          input.classList.add('input-error');
+          input.focus();
+          showError(`⚠️ 请先填写必填项：【${labelName}】`, input);
+          return false;
+        }
+      }
+
+      if (step === 4) {
+        const goalsChecked = document.querySelectorAll('.goal-checkbox:checked').length;
+        if (goalsChecked === 0 || goalsChecked > 3) {
+          showError("⚠️ 第 19 题请至少勾选 1 项、最多勾选 3 项您期望孩子进步的方面。", document.getElementById('goalsSectionBox'));
+          return false;
+        }
+      }
+
+      if (step === 5) {
+        const knowChecked = document.querySelectorAll('.know-checkbox:checked').length;
+        if (knowChecked === 0) {
+          showError("⚠️ 第 23 题请勾选您是如何认识我们的。", document.getElementById('knowUsSectionBox'));
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function changeStep(delta) {
+      if (delta > 0 && !validateStep(currentStep)) return;
+      currentStep += delta;
+
+      document.querySelectorAll('.step-section').forEach(sec => {
+        sec.classList.toggle('active', parseInt(sec.dataset.step, 10) === currentStep);
+      });
+
+      const pct = Math.round((currentStep / totalSteps) * 100);
+      document.getElementById('progressBar').style.width = `${pct}%`;
+      document.getElementById('stepPercentDisplay').textContent = `${pct}%`;
+      document.getElementById('stepTitleDisplay').textContent = stepTitles[currentStep - 1];
+
+      for (let i = 1; i <= totalSteps; i++) {
+        const tab = document.getElementById(`tab-${i}`);
+        tab.className = i <= currentStep ? "text-[#0f3578] font-extrabold" : "text-slate-400";
+      }
+
+      const nextBtn = document.getElementById('nextBtn');
+      nextBtn.textContent = currentStep === 1 ? "已选好课程，开始填写学生资料 →" : "下一步 Next →";
+
+      document.getElementById('prevBtn').classList.toggle('hidden', currentStep === 1);
+      nextBtn.classList.toggle('hidden', currentStep === totalSteps);
+      document.getElementById('submitBtn').classList.toggle('hidden', currentStep !== totalSteps);
+
+      document.getElementById('topProgressCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // 一键复制 Public Bank 银行账号 3226008231
+    function copyBankAccount() {
+      navigator.clipboard.writeText("3226008231");
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = "✓ 已复制 Copied!";
+      setTimeout(() => { btn.textContent = "复制银行账号 Copy Account"; }, 2000);
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!validateStep(5)) return;
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+      submitBtn.textContent = "⏳ 正在保存资料 Saving...";
+
+      const formData = new FormData(this);
+
+      const goals = Array.from(document.querySelectorAll('input[name="improvementGoals"]:checked')).map(el => el.value);
+      if (document.getElementById('goalOtherCheck').checked) {
+        const otherVal = document.getElementById('goalOtherText').value.trim();
+        if (otherVal) goals.push(`Other: ${otherVal}`);
+      }
+
+      const courses = Array.from(document.querySelectorAll('input[name="courses"]:checked')).map(el => el.value);
+      if (document.getElementById('courseOtherCheck').checked) {
+        const otherCourse = document.getElementById('courseOtherText').value.trim();
+        if (otherCourse) courses.push(`Other: ${otherCourse}`);
+      }
+
+      const knowUs = Array.from(document.querySelectorAll('input[name="knowUs"]:checked')).map(el => el.value);
+      if (document.getElementById('knowOtherCheck').checked) {
+        const otherKnow = document.getElementById('knowOtherText').value.trim();
+        if (otherKnow) knowUs.push(`Other: ${otherKnow}`);
+      }
+
+      const feeInfo = calculateTotalFee();
+
+      const payload = {
+        timestamp: new Date().toLocaleString('zh-MY'),
+        chineseName: formData.get('chineseName'),
+        englishName: formData.get('englishName'),
+        gender: formData.get('gender'),
+        school: formData.get('school'),
+        studentClass: formData.get('studentClass'),
+        mykid: formData.get('mykid'),
+        age: formData.get('age'),
+        parent1Name: formData.get('parent1Name'),
+        parent1Phone: formData.get('parent1Phone'),
+        parent1Relation: formData.get('parent1Relation'),
+        parent2Name: formData.get('parent2Name'),
+        parent2Phone: formData.get('parent2Phone'),
+        parent2Relation: formData.get('parent2Relation'),
+        address: formData.get('address'),
+        carPlate: formData.get('carPlate') || 'N/A',
+        specialRemark: formData.get('specialRemark') || 'N/A',
+        googleUser: formData.get('googleUser') || 'N/A',
+        googlePass: formData.get('googlePass') || 'N/A',
+        improvementGoals: goals.join(' | '),
+        courses: courses.join(' ;\n'),
+        joiningMonth: formData.get('joiningMonth'),
+        referralBy: formData.get('referralBy') || 'N/A',
+        knowUs: knowUs.join(' | '),
+        estimatedTotal: feeInfo.firstFormatted,
+        subsequentMonthTotal: feeInfo.subsequentFormatted
+      };
+
+      const waMessage =
+`🌟 *Allstars 群星老师 2026-2027 新生报名确认* 🌟
+━━━━━━━━━━━━━━━━━━
+👧 *学生姓名*: ${payload.chineseName} (${payload.englishName})
+🪪 *性别 / 年龄*: ${payload.gender} | ${payload.age}
+🏫 *学校与班级*: ${payload.school} (${payload.studentClass})
+🔢 *MyKid*: ${payload.mykid}
+
+👨‍👩‍👧 *第一家长*: ${payload.parent1Name} (${payload.parent1Relation}) - ${payload.parent1Phone}
+🚗 *接送车牌*: ${payload.carPlate}
+🗓️ *加入月份*: ${payload.joiningMonth}
+
+📚 *报读课程与服务*:
+${courses.map(c => `• ${c}`).join('\n')}
+
+💰 *首月总额 (含RM90报名费)*: *${payload.estimatedTotal}*
+🔄 *第2个月起续费总额 (移除RM90)*: *${payload.subsequentMonthTotal}*
+━━━━━━━━━━━━━━━━━━
+💳 我已了解汇款户口：Public Bank 3226008231 (Pusat Jagaan Sinar Cahaya LK)，以下附上我的转账收据 (Bank-in Slip)：`;
+
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+      document.getElementById('waRedirectBtn').href = waUrl;
+
+      if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.startsWith("https://script.google.com")) {
+        try {
+          await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload)
+          });
+        } catch (err) {
+          console.warn("Google Sheets 同步警告：", err);
+        }
+        document.getElementById('successModal').classList.remove('hidden');
+        window.location.href = waUrl;
+      } else if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function() {
+            document.getElementById('successModal').classList.remove('hidden');
+            window.open(waUrl, '_blank');
+          })
+          .submitRegistration(payload);
+      } else {
+        document.getElementById('successModal').classList.remove('hidden');
+        window.location.href = waUrl;
+      }
+    });
+  </script>
+</body>
+</html>
